@@ -1,5 +1,11 @@
 package com.mballem.curso.boot.web.controller;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mballem.curso.boot.domain.Departamento;
+import com.mballem.curso.boot.domain.Usuario;
 import com.mballem.curso.boot.service.DepartamentoService;
 
 @Controller
@@ -21,9 +28,17 @@ public class DepartamentoController {
 
 	@Autowired
 	private DepartamentoService service;
+	//@Autowired
+	//private HttpSession session;
 	
 	@GetMapping("/listar")
 	public String listar(ModelMap model) {
+		
+		//session.invalidate();
+		
+		//Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		//System.out.println("Sessao aa: "+usuario.getSenha());
 		model.addAttribute("departamentos", service.buscarTodos());
 		return "departamento/lista";
 	}
