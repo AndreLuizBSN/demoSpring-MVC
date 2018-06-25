@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	
+	<section class="layout-content" layout:fragment="corpo">
+	
+		<div class="row barra-header">
+			<div class="col-md-12">
+				<a href="/" class="back-button">
+					<i class="oi oi-caret-left"></i>
+				</a>
+				<div class="divisor">|</div>
+				<span>Modulo financeiro</span>
+			</div>
+		</div>
+	
+		<div class="container">
+		
+			<div class="card-deck card-padrao">
+			  <a class="card" href="/financeiro/listar/saida">
+			    <img class="card-img-top" src="../image/financeiro-saida.png" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Saída</h5>
+			    </div>
+			  </a>
+			  <a class="card" href="/financeiro/listar/entrada">
+			    <img class="card-img-top" src="../image/financeiro-entrada.png" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Entrada</h5>
+			    </div>
+			  </a>
+			</div>
+		
+		</div>
+		<hr>
+		<div class="container">
+		
+			<div class="card-deck card-padrao">
+			  <a class="card"  href="/tipofinanceiro/listar">
+			    <img class="card-img-top" src="../image/config.png" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Tipos</h5>
+			    </div>
+			  </a>
+			</div>
+		
+		</div>
+	</section>		
+</body>
+</html>

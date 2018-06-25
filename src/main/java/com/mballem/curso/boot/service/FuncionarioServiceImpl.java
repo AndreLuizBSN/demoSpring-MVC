@@ -59,9 +59,9 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 		// TODO Auto-generated method stub
 		if(entrada != null && saida != null) {
 			return dao.findByDataEntradaDataSaida(entrada, saida);
-		} else if(entrada != null) {
+		} else if(entrada != null && saida == null) {
 			return dao.findByDataEntrada(entrada);
-		} else if(entrada != null) {
+		} else if(entrada == null && saida != null) {
 			return dao.findByDataSaida(saida);
 		} else {
 			return new ArrayList<>();

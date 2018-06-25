@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+<body>
+	
+	
+    <section class="layout-content" layout:fragment="corpo">
+    	<div class="row barra-header">
+			<div class="col-md-10">
+				<a href="/modulos/financeiro" class="back-button">
+					<i class="oi oi-caret-left"></i>
+				</a>
+				<div class="divisor">|</div>
+				<span>Lista de tipos de financeiros</span>
+			</div>
+			<div class="col-md-2">
+				<a class="btn btn-primary btn-md" th:href="@{/tipofinanceiro/cadastrar/}+${forma}" role="button">
+                    <span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span>
+                    <span>Novo</span>
+                </a>
+			</div>
+		</div>
+
+        <div class="container" id="listagem">
+        
+        	<div th:replace="fragments/alert"></div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>E/S</th>
+                        <th>Ativo</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+	                    <tr th:each="tipFin : ${tipoFinanceiros}">
+	                        <td th:text="${tipFin.id}"></td>
+	                        <td th:text="${tipFin.nome}"></td>
+	                        <td th:text="${tipFin.entradaSaida.descricao}"></td>
+	                        <td th:text="${tipFin.ativo} ? '✓' : ''"></td>
+	                        <td colspan="2">
+	                            <a class="btn btn-info btn-sm" th:href="@{/tipofinanceiro/editar/{id} (id = ${tipFin.id}) }" role="button">
+	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+	                            </a>
+	                            <button th:id="${'btn_tipofinanceiro/excluir/'+tipFin.id}" type="button" class="btn btn-danger btn-sm"
+	                            	data-toggle="modal" data-target="#myModal">
+	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
+	                            </button>
+	                        </td>
+	                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div th:replace="fragments/modal :: modal"></div>
+
+    </section>
+	
+</body>
+</html>		

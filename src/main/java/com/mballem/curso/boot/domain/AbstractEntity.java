@@ -7,6 +7,10 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 @MappedSuperclass
 public abstract class AbstractEntity<ID extends Serializable> implements Serializable {
+	
+	public AbstractEntity() {
+		System.out.println("AbstractEntity: com.mballem.curso.boot.domain");
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

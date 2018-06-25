@@ -10,6 +10,9 @@ body {
 	padding-left: 0;
 } 
 
+a{
+	text-decoration: none !important;
+}
 /*
  * main layout
  */
@@ -18,7 +21,21 @@ body {
     min-height: calc(100vh - 52px);
     overflow: hidden;
 }
-
+.divisor {
+	margin: 0px 5px;
+    font-size: 20px;
+    display: inline-block;
+}
+.back-button{
+	padding: 0px 10px;
+}
+.barra-header{
+	padding: 5px;
+    background: rgba(0,0,0,0.1);
+}
+.barra-header > div{
+	margin-bottom: 5px;
+}
 /*
  * Content
  */
@@ -44,6 +61,10 @@ body {
     flex-shrink: 0;
     overflow: hidden;
     transition: width .5s;
+}
+
+.s-100{
+	width: 100%;
 }
 
 .sidebar .nav {
@@ -79,7 +100,7 @@ body {
 }
 
 .sidebar.sidebar-open {
-    width: 300px;
+    width: 200px;
 }
 
 /*
@@ -88,6 +109,23 @@ body {
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 	color: #fff;
 	background-color: #1e94d2;
+}
+
+/*
+card
+*/
+.card-deck .card{
+	flex: none;
+	width: 200px;
+    margin-bottom: 20px;
+}
+.card-deck .card .card-img-top{
+	width: 95%;
+	margin: 5px;
+}
+
+.card-deck .card .card-body{
+	text-align: center;
 }
 
 /*

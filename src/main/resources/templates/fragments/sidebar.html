@@ -8,9 +8,54 @@
 			<li class="nav-item"><a class="nav-link " href="/"> <i
 					class="oi oi-home"></i> <span th:text="#{sidebar.link.home}">Home</span>
 			</a></li>
-		</ul>
-
+		</ul>		
 		<ul class="nav nav-pills">
+			
+			<a href="#financeiroMenu"
+				data-toggle="collapse" 
+				aria-expanded="true" 
+				class="nav-item">
+				<span class="nav-link active" th:text="#{sidebar.link.modulofinanceiro}">Financeiro</span>
+			</a>
+			<ul class="list-unstyled collapse s-100" id="financeiroMenu" style="">
+				<li class="nav-item">
+				    <a href="#tipoFinanceioSubmenu"
+						data-toggle="collapse" 
+						aria-expanded="true" 
+						class="nav-item">
+						<span class="nav-link active" th:text="#{sidebar.link.tipofinanceiro}">Financeiro</span>
+					</a>
+					<ul class="list-unstyled collapse" id="tipoFinanceioSubmenu" style="">
+					    <li class="nav-item"><a class="nav-link"
+							href="/tipofinanceiro/listar"> <i class="oi oi-spreadsheet"></i>
+								<span th:text="#{sidebar.link.listar}">Listar </span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" 
+							href="/tipofinanceiro/cadastrar"> <i class="oi oi-plus"></i> <span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
+						</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+				    <a href="#financeioSubmenu"
+						data-toggle="collapse" 
+						aria-expanded="true" 
+						class="nav-item">
+						<span class="nav-link active" th:text="#{sidebar.link.financeiro}">Financeiro</span>
+					</a>
+					<ul class="list-unstyled collapse" id="financeioSubmenu" style="">
+					    <li class="nav-item"><a class="nav-link"
+							href="/tipofinanceiro/listar"> <i class="oi oi-spreadsheet"></i>
+								<span th:text="#{sidebar.link.listar}">Listar </span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" 
+							href="/tipofinanceiro/cadastrar"> <i class="oi oi-plus"></i> <span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
+						</a></li>
+					</ul>
+				</li>
+			</ul>
+		</ul>
+		
+		<!--<ul class="nav nav-pills">
 			<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.link.departamento}">Departamentos</span></li>
 			<li class="nav-item"><a class="nav-link"
 				href="/departamentos/cadastrar"> <i class="oi oi-plus"></i> <span th:text="#{sidebar.link.cadastrar}">Cadastrar</span>
@@ -40,7 +85,7 @@
 			<li class="nav-item"><a class="nav-link" 
 				href="/funcionarios/listar"> <i class="oi oi-spreadsheet"></i> <span th:text="#{sidebar.link.listar}">Listar </span>
 			</a></li>
-		</ul>
+		</ul>-->
 	</nav>
 </body>
 </html>

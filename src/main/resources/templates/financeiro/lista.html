@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+<body>
+	
+	
+    <section class="layout-content" layout:fragment="corpo">
+
+		<div class="row barra-header">
+			<div class="col-md-10">
+				<a  href="/modulos/financeiro" class="back-button">
+					<i class="oi oi-caret-left"></i>
+				</a>
+				<div class="divisor">|</div>
+				<span th:text="${'Lista de lançamentos financeiros de '}+${forma}"></span>
+			</div>
+			<div class="col-md-2">
+				<a class="btn btn-primary btn-md" th:href="@{/financeiro/cadastrar/}+${forma}" role="button">
+                    <span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span>
+                    <span>Novo</span>
+                </a>
+			</div>
+		</div>
+
+        <div class="container" id="listagem">
+        
+        	<div th:replace="fragments/alert"></div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Descrição resumida</th>
+                        <th>E/S</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+	                    <tr th:each="fin : ${financeiros}">
+	                        <td th:text="${fin.id}"></td>
+	                        <td th:text="${fin.nome}"></td>
+	                        <td th:text="${fin.entradaSaida.descricao}"></td>
+	                        <td th:text="${fin.valor}"></td>
+	                        <td th:text="${fin.data}"></td>
+	                        <td colspan="2">
+	                            <a class="btn btn-info btn-sm" th:href="@{/financeiro/editar/{forma}/{id} (id = ${fin.id}) }" role="button">
+	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+	                            </a>
+	                            <button th:id="${'btn_financeiro/excluir/'+fin.id}" type="button" class="btn btn-danger btn-sm"
+	                            	data-toggle="modal" data-target="#myModal">
+	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
+	                            </button>
+	                        </td>
+	                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div th:replace="fragments/modal :: modal"></div>
+
+    </section>
+	
+</body>
+</html>		
